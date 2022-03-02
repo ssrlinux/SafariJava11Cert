@@ -17,3 +17,119 @@ D) void doStuff() {
 E) void doStuff() {
      var x = { 1, 2, 3 };
    }
+
+Q) Which are legal:
+A) void doStuff() {
+ var [] x = new int[]{ 1, 2, 3 };
+}
+B) void doStuff() {
+ var x = 1, y = 2;
+}
+C) void doStuff() {
+ try {
+  // stuff happens
+  } catch (var ex) {
+  }
+}
+D) try (var in = new FileReader("");
+     var out = new FileWriter("")) {
+}
+E) var var = "var";
+
+Q) Which are legal:
+A) { int x; }
+  { int x; }
+B) class X {
+    { sout(x); }
+    int x;
+  }
+C) {
+    int x;
+    { int x; }
+  }
+D) {
+    int x;
+    Predicate<String> ps = x -> true;
+  }
+E) for (int x = 0; x < 10; x++)
+    ;
+   int x;
+
+Q)   Which print "true"
+A) String s = "Hello";
+  String t = "He";
+  t += "llo";
+  sout(s == t);
+B) String s = "Hello";
+  String t = "He";
+  t += "llo";
+  sout(s.equals(t));
+C) StringBuilder s = new StringBuilder("Hello");
+  StringBuilder t = new StringBuilder("He");
+  t.append("llo");
+  sout(s.equals(t));
+D) List<String> ls = List.of("Fred", "Jim");
+  List<String> ls2 = new ArrayList<>(ls);
+  sout(ls.equals(ls2));
+E) LocalDate ld = LocalDate.of(2021, 3, 29);
+  LocalDate ld2 = LocalDate.of(2021, 3, 29);
+  sout(ld.equals(ld2));
+
+Q) Which are valid?
+A) int x = 99;
+switch (x) {
+ // cases
+}
+
+B) long y = 100;
+switch (y) {
+ // cases
+}
+
+C) Day d = Day.MONDAY;
+switch (d) {
+ case MONDAY:
+}
+
+D) switch (d) {
+ case Day.MONDAY:
+}
+
+Q)
+Given
+  void doStuff() throws IOException {};
+  void doStuff2() throws FileNotFoundException {};
+And:
+  void tryStuff() {
+    try {
+      doStuff();
+      doStuff2();
+    } enter code here { /*handle both exceptions */ }
+  }
+What can be inserted at "enter code here"
+to provide handling of exceptions from both
+methods?
+A) catch (IOException | FileNotFoundException e)
+B) catch (FileNotFoundException | IOException e)
+C) catch (FileNotFoundException e)
+D) catch (IOException e)
+E) finally
+
+Q) Given
+ void doStuff() throws SQLException {};
+ void doStuff2() throws FileNotFoundException {};
+And:
+ void tryStuff() ...insert here... {
+   try {
+     doStuff();
+     doStuff2();
+   } catch (SQLException | FileNotFoundException e) {
+     throw e;
+   }
+ }
+What is best at "...insert here..."?
+A) throws Exception
+B) throws SQLException
+C) throws FileNotFoundException
+D) throws FileNotFoundException, SQLException
+E) nothing is needed, compilation succeeds as is
