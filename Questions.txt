@@ -133,3 +133,58 @@ B) throws SQLException
 C) throws FileNotFoundException
 D) throws FileNotFoundException, SQLException
 E) nothing is needed, compilation succeeds as is
+
+Q) Given:
+   var fr = new FileReader("main.txt");
+   try (
+        // line n1
+       ){
+     BufferedReader br = new BufferedReader(fr);
+     String line;
+     while ((line = br.readLine()) != null)
+       System.out.println(">> " + line);
+   }
+   fr = null;
+
+What should be added at line n1 for successful compilation?
+A) fr;
+B) final fr;
+C) var fr2 = fr;
+D) This cannot be achieved with change restricted to line n1
+
+Q) Given:
+class X {
+  static int x = 99;
+}
+class Y extends X {
+  int x = 100;
+  void doStuff() {
+    sout(x);
+  }
+  static void doMore(int x) { new Y.doStuff(); }
+  psvm { doMore(98); }
+}
+What is the result?
+A) Compilation fails
+B) Exception at runtime
+C) 98
+D) 99
+E) 100
+
+Q) Given:
+void doStuff(int x, int y) {}         // Method A
+void doStuff(int x, long y) {}        // Method B
+void doStuff(long x, int y) {}        // Method C
+void doStuff(int ... x) {}            // Method D
+void doStuff(Integer x, Integer y) {} // Method E
+
+void tryStuff() {
+    doStuff(1, 2);
+}
+
+What happens if method A is deleted?
+A) Method B is invoked
+B) Method C is invoked
+C) Method D is invoked
+D) Method E is invoked
+E) Compilation fails
