@@ -3,19 +3,16 @@ Resources
 
 Quiztool:
  - http://ec2-54-190-20-248.us-west-2.compute.amazonaws.com:8080/quiz-tool/
-Github repo (remember this will vanish in two weeks)
+Github repo (NOTE: this will vanish in two weeks, clone/download before then!)
  - https://github.com/SimonHGR/SafariJava11Cert
 
-Recording
- - about 24 hours
- - get an email notifying
- - follow the same link you came here with
-
-Pre-recorded video (~20 hours)
- - OCA Java 8 only (I'm working on updates) but all 8 is relevant for 11!
- - Slower, more complete
+Pre-recorded Certification videos
+ - Java 11 Cert study:
+ - https://learning.oreilly.com/videos/java-se-11/9780137586875/
+ - OCA Java 8 (more detailed on basics, all relevant for 11!)
  - https://learning.oreilly.com/videos/oca-java-se/9780134427201
- Other videos relevant for Java 11 certification:
+
+More Java videos relevant for Java 11 certification:
  - Functional programming with Java: https://learning.oreilly.com/videos/functional-programming-for/9780134778235
  - Java Collections: https://learning.oreilly.com/videos/modern-java-collections/9780134663524
  - Java Programming Essentials: https://learning.oreilly.com/videos/java-programming-essentials/9780137475438/
