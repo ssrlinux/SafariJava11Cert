@@ -350,3 +350,97 @@ B) MONDAY
 C) Day.MONDAY
 D) Exception at runtime
 E) Compilation fails
+
+Q) Given
+class Outer {
+  class Inner{
+  }
+}
+Which create an instance of Inner?
+A) new Inner();
+B) new Outer.Inner();
+C) Outer ou = new Outer(); new ou.Inner();
+D) new Outer().new Inner();
+
+Q) Given:
+public void doStuff() {
+  int len = 3;
+  Predicate<String> ps = new Predicate<String>() {
+    @Override
+    public boolean test(String s) {
+        return s.length() > len; // line n1
+    }
+  };
+  // line n2
+}
+
+Which are true?
+A) The code compiles
+B) Compilation fails due to a problem at line n1
+C) adding the code
+System.out.println("testing lines " + (++len));
+at line n2 is OK
+
+Q) Given:
+interface StudentCriterion {
+   boolean test(Student s);
+}
+
+and:
+class Student {
+   public int getGpa() { return 0; }
+   public List<String> getCourses() { return null; }
+}
+
+Which are legal (individually):
+A) StudentCriterion sc = Student s -> { return s.getGpa() > 3;};
+B) StudentCriterion sc = s -> { s.getGpa() > 3 };
+C) Object sc = s -> {return s.getGpa() > 3;};
+D) StudentCriterion sc = (s) -> s.getGpa() > 3;
+E) StudentCriterion sc = s -> s.getCourses().size();
+
+Q)   Which are correct declarations?
+A) Comparator<String> cs = s1, s2 -> s2.compareTo(s1);
+B) Comparator<String> cs = (s1, s2) -> s2.compareTo(s1);
+C) Comparator<String> cs = (var s1, String s2) -> s2.compareTo(s1);
+D) Comparator<String> cs = (var s1, s2) -> s2.compareTo(s1);
+E) Comparator<String> cs = (String s1, String s2) -> s2.compareTo(s1);
+
+Q)   Which are correct declarations?
+ A) Predicate<String> ps = s -> s.length();
+ B) Predicate<String> ps = (s) -> { s.length() };
+ C) Supplier<String> ss = () -> "";
+ D) Function<String, Integer> len = (s, i) -> s.length() > i;
+ E) ToLongFunction<String> len =  (String s) -> {
+     long sum = 0;
+     for (int i = 0; i < s.length(); i++) {
+       sum += s.charAt(i);
+     }
+     return sum;
+   };
+
+Q) Given:
+ class Q25Base {
+   int x = 99;
+   { System.out.println("x is " + x); }
+   Q25Base(){
+    super();
+    // instance initialization
+   }
+ }
+ class Q25Sub extends Q25Base {
+   Q25Sub(int x) {
+    super();
+    // instance initialization
+    System.out.println("in constructor, x is " + x); }
+   public static void go() { new Q25Sub(1); }
+ }
+
+Given a call to go(), what is the result?
+A) in constructor, x is 1
+  x is 99
+B) x is 99
+  in constructor, x is 1
+C) x is 99
+  in constructor, x is 99
+D) Compilation fails
