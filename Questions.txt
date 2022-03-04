@@ -576,3 +576,126 @@ Which is true?
 A) Object containing "Hello" is unreferenced and eligible for GC
 B) Object containing "World" is unreferenced and eligible for GC
 C) No objects are eligible for GC
+
+Q) Given:
+ static String doStuff(String s) {
+   s = new String("Hello");
+   return new String(s);
+ }
+
+ public static void main(String[] args) {
+   String y = doStuff("Hello");
+   // line n1
+ }
+
+How many String objects are eligible for GC at line n1
+A) 0
+B) 1
+C) 2
+D) 3
+
+Q) Which are valid annotation declarations?
+A) @interface Annot {}
+B) @ interface Annot {
+    String value() = "";
+  }
+C) @interface Annot {
+    StringBuilder text();
+  }
+D) @interface Annot {
+    Class value();
+  }
+E) @Retention(RetentionPolicy.CLASS)
+  @interface Annot {}
+
+Q) Given
+public int getValue() {return 1;}
+
+which of these methods may individually be added to a subclass of this class?
+
+A) public int getValue(int x) {return 1;}
+B) public String getValue() {return "Hello";}
+C) public String getValue(int x) {return "Hello";}
+
+Q) Given
+ class Base2 {
+   void doBaseStuff() {
+     System.out.println("doBaseStuff");
+   }
+ }
+ class Sub2 extends Base2 {
+   void doBaseStuff() {
+     System.out.println("doSubStuff");
+   }
+ }
+In the Base2 and Sub2 classes, which are true in isolation?
+
+A) doBaseStuff in Base2 can be marked public without causing errors
+B) doBaseStuff in Base2 can be marked private without causing errors
+C) doBaseStuff in Sub2 can be marked public without causing errors
+D) doBaseStuff in Sub2 can be marked protected without causing errors
+E) doBaseStuff in Sub2 can be marked private without causing errors
+
+Q) Given:
+class Base {
+    void doBaseStuff() { System.out.println("doBaseStuff"); }
+}
+class Sub extends Base {
+    void doBaseStuff() { System.out.println("doSubStuff"); }
+}
+In the Base and Sub classes, which are true in isolation?
+
+A) doBaseStuff in Base can be marked throws Exception without causing errors
+B) doBaseStuff in Base can be marked throws RuntimeException without causing
+   errors
+C) doBaseStuff in Sub can be marked throws Exception without causing errors
+D) doBaseStuff in Sub can be marked throws RuntimeException without causing
+   errors
+E) if doBaseStuff in Base were marked throws Exception, then doBaseStuff in
+   Sub can be marked throws IOException without causing errors
+
+Q) Given:
+class Q23Base {
+    public Q23Base get() {
+        return null;
+    }
+}
+
+class Q23Sub extends Q23Base {
+}
+
+Which methods may individually be added to this class?
+
+A) public Q23Base get() { return null; }
+B) public Q23Sub get() { return null; }
+C) public Runnable get() { return null; }
+E) None of these
+
+Notes:
+Q23Base qb = aQ23Base.get(); // works for A and B, not for C!
+this is called a co-variant return, only since Java 5, but who cares
+BUT this mechanism ONLY works with reference types!!!!
+CANNOT change the return type of an overloading method if the original
+return type was PRIMITIVE
+
+Q) Given:
+    CharSequence obj = "Hello";
+    var a = (String)obj;
+    var b = (LocalDate)obj;
+    var c = (Runnable)obj;
+
+Which are true:
+A) assignment to a compiles and runs
+B) assignment to b compiles
+C) assignment to c compiles
+D) assignment to b runs
+E) assignment to c runs
+
+----------------------------------
+
+7 A) Annotations
+3 B) Modules
+1 C) Serialization
+3 D) Library
+6 E) casting, rules of overriding
+
