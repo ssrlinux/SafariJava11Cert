@@ -493,7 +493,7 @@ class Parent {
 class Child extends Parent {
   int x = 200;
   static int y = 300;
-  Child() { super(200); }
+  Child() { super(y); }
   Child(int x) { this(); }
   { out.print(", C-i x: is " + x); }
   static { out.print(", C-si: y is " + y); }
